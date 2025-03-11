@@ -18,6 +18,14 @@ class AuthMiddleware
     public function __invoke(Request $request, Handler $handler): Response
     {
         $headerToken = $request->getHeaderLine('Authorization');
+        if (empty($headerToken)) {
+            $response = new \Slim\Psr7\Response();
+            $response->getBody()->write(json_encode(['error' => 'Token no proporcionado']));
+            return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
+        }
+        if (strpos($headerToken, 'Bearer ') === 0) {
+            $headerToken = substr($headerToken, 7);
+        }
 
         if ($headerToken !== $this->token) {
             $response = new \Slim\Psr7\Response();
