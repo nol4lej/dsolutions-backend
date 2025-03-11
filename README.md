@@ -1,8 +1,10 @@
 # Prueba técnica
 
-Debes tener instalado Docker para ejecutar.
+Este proyecto sigue una arquitectura en capas, separando la lógica de negocio, la capa de datos y la presentación para mejorar la mantenibilidad y escalabilidad del código.
 
-Sigue estas instrucciones para clonar y ejecutar la aplicación localmente.
+## Clonar el repositorio
+
+Para ejecutar esta aplicación, es necesario tener Docker instalado en tu sistema.
 
 ## Clonar el repositorio
 
@@ -14,7 +16,7 @@ cd dsolutions-backend
 ## Descargar dependencias Slim Framework
 
 ```bash
-docker run --rm -v $(pwd):/app composer/composer require slim/slim "^4.0"
+docker run --rm -v $(pwd):/app composer/composer require slim/slim "^4.0" vlucas/phpdotenv
 ```
 
 ## Enviroment
