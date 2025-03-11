@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 $app = require __DIR__ . '/src/Config/bootstrap.php';
 $env = require __DIR__ . '/src/Config/env.php';
 
